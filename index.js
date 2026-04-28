@@ -20,7 +20,6 @@ app.use(express.json())
 
 app.use(authenticateUser)
 
-app.use("/students", studentRouter);
 app.use("/users",userRouter)
 app.use("/products" ,productRouter)
 
