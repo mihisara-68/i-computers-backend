@@ -68,7 +68,8 @@ export async function loginUser(req, res) {
                 console.log(token)
 
                 res.json({
-                    token: token
+                    token: token,
+                    isAdmin: user.isAdmin
                 })
 
 

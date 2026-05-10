@@ -4,17 +4,22 @@ import userRouter from './routers/userRouter.js';
 import jwt from 'jsonwebtoken';
 import authenticateUser from './middlewares/authentication.js';
 import productRouter from './routers/productRouter.js';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
-const mongodbURl ="mongodb+srv://admin:1234@cluster0.nv1hht7.mongodb.net/?appName=Cluster0"
+
+const mongodbURl = process.env.MONGODB_URL;
 
 mongoose.connect(mongodbURl).then(
     ()=>{
         console.log("connected to mongodb");
     }
 )
-
+app.use(cors());
 app.use(express.json())
 
 app.use(authenticateUser)

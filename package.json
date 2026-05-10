@@ -13,15 +13,25 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.2.4",
     "nodemon": "^3.1.11"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.39.4",
     "eslint": "^9.39.4",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihisara-68/i-computers-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mihisara-68/i-computers-backend/issues"
+  },
+  "homepage": "https://github.com/mihisara-68/i-computers-backend#readme"
 }
