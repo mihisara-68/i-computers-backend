@@ -1,32 +1,27 @@
- import jwt from 'jsonwebtoken';
- 
- export default function authenticateUser (req,res,next){
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
-        const header = req.header("Authorization")
-        
-        if(header !=null){
+dotenv.config();
 
-            const token = header.replace("Bearer ", "")
-        
-            jwt.verify(token,"mihisara",
-                (error,decoded)=>{
-                    console.log(decoded)
+export default function authenticateUser(req, res, next) {
+  const header = req.header("Authorization");
 
-                    if(decoded == null){
-                        res.json(
-                            {
-                                message : "Invalid Token Please Loging Again"
-                            }
-                        )
-                    }else{
-                        req.user = decoded
-                        next()
-                    }
-                }
-            )
+  if (header != null) {
+    const token = header.replace("Bearer ", "");
 
-        }else{
-            next()
-        }
-    }
- 
+    jwt.verify(token, "mihisara", (error, decoded) => {
+      console.log(decoded);
+
+      if (decoded == null) {
+        res.json({
+          message: "Invalid Token Please Loging Again",
+        });
+      } else {
+        req.user = decoded;
+        next();
+      }
+    });
+  } else {
+    next();
+  }
+}
