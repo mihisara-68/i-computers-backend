@@ -6,6 +6,7 @@ import authenticateUser from "./middlewares/authentication.js";
 import productRouter from "./routers/productRouter.js";
 import cors from "cors";
 import dotenv from "dotenv";
+import orderRouter from "./routers/orderRouter.js";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(authenticateUser);
 
 app.use("/users", userRouter);
 app.use("/products", productRouter);
+app.use("/orders", orderRouter);
 
 app.put("/", (req, res) => {
   console.log("Put request received");
